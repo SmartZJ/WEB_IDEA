@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AjaxWeb/AjaxWeb.iml" filepath="$PROJECT_DIR$/AjaxWeb/AjaxWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EmployeeWeb/EmployeeWeb.iml" filepath="$PROJECT_DIR$/EmployeeWeb/EmployeeWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirstWeb/FirstWeb.iml" filepath="$PROJECT_DIR$/FirstWeb/FirstWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirstWebs/FirstWebs.iml" filepath="$PROJECT_DIR$/FirstWebs/FirstWebs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoginAndRegis4/LoginAndRegis4.iml" filepath="$PROJECT_DIR$/LoginAndRegis4/LoginAndRegis4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudentServlet/StudentServlet.iml" filepath="$PROJECT_DIR$/StudentServlet/StudentServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UploadWeb/UploadWeb.iml" filepath="$PROJECT_DIR$/UploadWeb/UploadWeb.iml" />
+    </modules>
+  </component>
+</project>
