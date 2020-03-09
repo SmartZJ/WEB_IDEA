@@ -13,28 +13,28 @@ public class EmployeeDao {
     /**
      * 添加员工
      */
-    public void addEmployee(String name,int age,int gender){
-        Connection conn=null;
-        PreparedStatement ps=null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
-            ps=conn.prepareStatement("insert into e_emp values(null,?,?,?)");
-            ps.setString(1, name);
-            ps.setInt(2, age);
-            ps.setInt(3, gender);
-            ps.execute();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally{
-            try {
-                ps.close();
-                conn.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
+//    public void addEmployee(String name,int age,int gender){
+//        Connection conn=null;
+//        PreparedStatement ps=null;
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
+//            ps=conn.prepareStatement("insert into e_emp values(null,?,?,?)");
+//            ps.setString(1, name);
+//            ps.setInt(2, age);
+//            ps.setInt(3, gender);
+//            ps.execute();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }finally{
+//            try {
+//                ps.close();
+//                conn.close();
+//            } catch (Exception e2) {
+//                e2.printStackTrace();
+//            }
+//        }
+//    }
     public void addEmployee(int id,String name,int age,int gender){
         Connection conn=null;
         PreparedStatement ps=null;
@@ -113,7 +113,8 @@ public class EmployeeDao {
 
     }
 
-
+/*
+* 查询*/
 
     public List<Employee> queryEmployees(int startRow, int pageRow) {
         Connection conn=null;
@@ -317,6 +318,41 @@ public class EmployeeDao {
             ps.setInt(2, num2);
             ps.setInt(3, startRow);
             ps.setInt(4, pageRow);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                int id=rs.getInt(1);
+                String name=rs.getString(2);
+                int age=rs.getInt(3);
+                int gender=rs.getInt(4);
+
+                empList.add(new Employee(id, name, age, gender));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                conn.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+
+        }
+        return empList;
+    }
+
+
+    //poi用测试方法
+    public List<Employee> queryEmployee() {
+        Connection conn=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        List<Employee> empList=new ArrayList<Employee>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
+            ps=conn.prepareStatement("select * from e_emp ");
             rs=ps.executeQuery();
             while(rs.next()){
                 int id=rs.getInt(1);

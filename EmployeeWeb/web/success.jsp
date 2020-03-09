@@ -104,6 +104,7 @@
                 <a href="addEmployee.jsp"><button id="add">添加员工</button></a>
                 <a ><button id="del">删除员工</button></a>
                 <a href='showAge.jsp'><button>年龄分布图</button></a>
+                <a href='employeeServlet?mark=downloadEmployees'><button>员工信息下载</button></a>
             </td>
         </tr>
         <tr>
@@ -125,24 +126,10 @@
         </c:forEach>
         <tr align="center">
             <td colspan="5">
-                <c:if test="${page.curPage!=page.firstPage }">
-                    <a href="employeeServlet?mark=query&curPage=${page.firstPage }"><button>首页</button></a>
-                    <a href="employeeServlet?mark=query&curPage=${page.prevPage }"><button>上一页</button></a>
-                </c:if>
-                <c:forEach begin="${page.beginNav }" end="${page.endNav }" var="i">
-                    <c:choose>
-                        <c:when test="${page.curPage==i }">
-                            <font color='red'>${i }</font>
-                        </c:when>
-                        <c:otherwise>
-                            <a href="employeeServlet?mark=query&curPage=${i }">${i }</a>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
-                <c:if test="${page.curPage!=page.lastPage }">
-                    <a href="employeeServlet?mark=query&curPage=${page.nextPage }"><button>下一页</button></a>
-                    <a href="employeeServlet?mark=query&curPage=${page.lastPage }"><button>尾页</button></a>
-                </c:if>
+                <jsp:include page="PageUtil.jsp">
+                    <jsp:param value="employeeServlet?mark=query" name="url"/>
+                </jsp:include>
+                <!--下拉条 -->
                 <select id="sl" size="1" style="overflow: hidden">
                 <c:forEach begin="1" end="${page.lastPage}" var="i">
                     <c:choose>

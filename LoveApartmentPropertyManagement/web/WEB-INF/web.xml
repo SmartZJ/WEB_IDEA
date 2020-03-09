@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>com.sxtljx.controller.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResidentServlet</servlet-name>
+        <servlet-class>com.sxtljx.controller.ResidentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EquipmentServlet</servlet-name>
+        <servlet-class>com.sxtljx.controller.EquipmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResidentServlet</servlet-name>
+        <url-pattern>/residentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EquipmentServlet</servlet-name>
+        <url-pattern>/equipmentServlet</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
